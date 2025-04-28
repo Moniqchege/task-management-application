@@ -1,0 +1,28 @@
+/* Optional: Custom styles for task list */
+.table {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th, .table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+  }
+  
+  button {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  table {
+    margin-top: 20px;
+  }
+  

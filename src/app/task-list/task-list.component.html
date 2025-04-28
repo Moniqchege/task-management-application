@@ -1,1 +1,32 @@
-<p>task-list works!</p>
+<h2 class="mb-4 text-center">Task List</h2>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Due Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks; let i = index">
+      <td>{{ task.title }}</td>
+      <td>
+        <span [ngClass]="{ 'text-success': task.completed, 'text-danger': !task.completed }">
+          {{ task.completed ? 'Completed' : 'Not Completed' }}
+        </span>
+      </td>
+      <td>{{ task.dueDate | date: 'shortDate' }}</td>
+      <td>
+        <button class="btn btn-sm" [ngClass]="{ 'btn-success': !task.completed, 'btn-warning': task.completed }" (click)="markComplete(task)">
+          {{ task.completed ? 'Mark Incomplete' : 'Mark Complete' }}
+        </button>
+        <button class="btn btn-danger btn-sm ms-2" (click)="deleteTask(i)">
+          Delete
+        </button>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>

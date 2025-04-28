@@ -1,0 +1,15 @@
+.notification-container {
+    background-color: #e1f5fe;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #01579b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+  }
+  
+  .notification-container strong {
+    color: #01579b;
+  }
+  

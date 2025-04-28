@@ -1,25 +1,19 @@
-import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { NotificationsComponent } from "./notifications/notifications.component";
+import { TaskListComponent } from "./task-list/task-list.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, NotificationsComponent, TaskListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'goal-tracker';
-  @ViewChild("loginModal") loginModal!: ElementRef;
-
-  openModal() {
-    if(this.loginModal) {
-      this.loginModal.nativeElement.style.display = 'block';
-    }
-  }
-
-  closeModal() {
-    if(this.loginModal) {
-      this.loginModal.nativeElement.style.display = 'none';
+  closeNavbar() {
+    const navbar = document.getElementById('navbarSupportedContent');
+    if (navbar?.classList.contains('show')) {
+      navbar.classList.remove('show');
     }
   }
 }

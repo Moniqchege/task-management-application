@@ -1,1 +1,66 @@
-<p>task-form works!</p>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Add New Task</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3">
+      <label for="title" class="form-label">Title:</label>
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        class="form-control"
+        placeholder="Enter title"
+      />
+      <div *ngIf="submitted && taskForm.controls['title'].errors">
+        <small class="text-danger">Title is required.</small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="form-control"
+        placeholder="Enter description"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date:</label>
+      <input
+        type="date"
+        id="dueDate"
+        formControlName="dueDate"
+        class="form-control"
+      />
+      <div *ngIf="submitted && taskForm.controls['dueDate'].errors">
+        <small class="text-danger" *ngIf="taskForm.controls['dueDate'].errors['required']">
+          Due date is required.
+        </small>
+        <small class="text-danger" *ngIf="taskForm.controls['dueDate'].errors['notFutureDate']">
+          Due date must be a future date.
+        </small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Status:</label>
+      <select
+        id="status"
+        formControlName="status"
+        class="form-select"
+        aria-label="Status"
+      >
+        <option value="false">Incomplete</option>
+        <option value="true">Complete</option>
+      </select>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success px-4">Submit</button>
+    </div>
+
+  </form>
+</div>
