@@ -3,6 +3,7 @@ import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-notifications',
+  imports: [],
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.css'],
 })

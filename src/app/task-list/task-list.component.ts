@@ -33,6 +33,4 @@ export class TaskListComponent implements OnInit {
   markComplete(task: any) {
     this.taskService.toggleTaskComplete(task);
   }
-
-  
 }
